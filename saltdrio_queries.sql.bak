@@ -1,0 +1,18 @@
+SELECT s.id, p.name, c.name, s.quantity, s.sale_date, s.amount
+FROM sales s JOIN products p ON s.product_id = p.id
+JOIN customers c ON s.customer_id = c.id;
+
+
+SELECT c.country, COUNT(s.id) AS orders, SUM(s.amount) AS revenue
+FROM sales s JOIN customers c ON s.customer_id = c.id
+GROUP BY c.country;
+
+
+SELECT p.name, SUM(s.quantity) AS sold, SUM(s.amount) AS revenue
+FROM sales s JOIN products p ON s.product_id = p.id
+GROUP BY p.id ORDER BY sold DESC;
+
+
+SELECT p.category, SUM(s.amount) AS revenue
+FROM sales s JOIN products p ON s.product_id = p.id
+GROUP BY p.category ORDER BY revenue DESC;
