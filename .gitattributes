@@ -1,3 +1,0 @@
-*.sql linguist-language=SQL
-*.sh linguist-language=Shell
-*.md linguist-language=Markdown
